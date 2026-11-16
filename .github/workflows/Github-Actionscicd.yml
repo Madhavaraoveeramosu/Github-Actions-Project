@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4 #on the runner its going to create local copy of the respository checkout the code
+    - uses: actions/checkout@v4 
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
