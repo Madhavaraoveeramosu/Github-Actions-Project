@@ -7,8 +7,8 @@ on:
   pull_request:
     branches: [ "main" ]
 # Grant required permissions
-permissions:
-  contents: write
+# permissions:
+#   contents: write
 jobs:
   compipe:
 
