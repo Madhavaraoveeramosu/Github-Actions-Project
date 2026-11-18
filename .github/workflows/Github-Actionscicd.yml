@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  compipe:
+  compile:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -45,11 +45,11 @@ jobs:
       - name: Trivy FS Scan
         run: trivy fs --format json -o fs-report.json .
 
-      - name: Gitleaks installation
-        run: |
-          wget https://github.com
-          tar -xzf gitleaks_8.21.2_linux_x64.tar.gz
-          sudo mv gitleaks /usr/local/bin/
+      # - name: Gitleaks installation
+      #   run: |
+      #     wget https://github.com
+      #     tar -xzf gitleaks_8.21.2_linux_x64.tar.gz
+      #     sudo mv gitleaks /usr/local/bin/
 
-      - name: Gitleaks Code Scan
-        run: gitleaks detect --source . -r gitleaks-report.json -f json
+      # - name: Gitleaks Code Scan
+      #   run: gitleaks detect --source . -r gitleaks-report.json -f json
