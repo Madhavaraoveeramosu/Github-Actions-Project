@@ -58,9 +58,10 @@ jobs:
 
       - name: Gitleaks installation
         run: |
-          wget https://github.com
-          tar -xzf gitleaks_8.21.2_linux_x64.tar.gz
-          sudo mv gitleaks /usr/local/bin/
+          wget -q https://github.com/gitleaks/gitleaks/releases/download/v8.21.2/gitleaks_8.21.2_linux_x64.tar.gz -O gitleaks.tar.gz
+          tar -xzf gitleaks.tar.gz
+          sudo install -m 0755 gitleaks /usr/local/bin/gitleaks
+          gitleaks version
 
       - name: Gitleaks Code Scan
-        run: gitleaks detect --source . -r gitleaks-report.json -f json
+        run: gitleaks detect --source . --report-path gitleaks-report.json --report-format json
